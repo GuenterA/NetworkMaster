@@ -14,11 +14,20 @@
                     <MenuItem Header="_Close"/>
                     <MenuItem Header="_Save"/>
                 </MenuItem>
+                <MenuItem Header="_Data">
+                    <MenuItem Header="Insert">
+                        <MenuItem Header="Connection"/>
+                        <MenuItem Header="Device"/>
+                        <MenuItem Header="DeviceType"/>
+                        <MenuItem Header="Model"/>
+                        <MenuItem Header="Manufacturer"/>
+                    </MenuItem>
+                </MenuItem>
             </Menu>
             <StackPanel></StackPanel>
         </DockPanel>
         <DockPanel>
-            <StatusBar DockPanel.Dock="Bottom" MinHeight="25" MaxHeight="30">
+            <StatusBar x:Name="StatusBar" DockPanel.Dock="Bottom" MinHeight="25" MaxHeight="30">
                 
             </StatusBar>
         </DockPanel>

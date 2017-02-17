@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace NetworkMaster
 {
@@ -23,6 +26,34 @@ namespace NetworkMaster
         public MainWindow()
         {
             InitializeComponent();
+            //Connection to Server
+            using (var conn = new NpgsqlConnection("Host=myserver;Username=root;Password=mypass;Database=mydatabase"))
+            {
+                conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+
+                    // Insert some data
+                    cmd.CommandText = "INSERT INTO data (some_field) VALUES ('Hello world')";
+                    cmd.ExecuteNonQuery();
+
+                    // Retrieve all rows
+                    cmd.CommandText = "SELECT some_field FROM data";
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Console.WriteLine(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+
+
+
+
+
         }
     }
 }
