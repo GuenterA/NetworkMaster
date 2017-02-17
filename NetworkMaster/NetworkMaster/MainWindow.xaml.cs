@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace NetworkMaster
 {
@@ -23,21 +26,34 @@ namespace NetworkMaster
         public MainWindow()
         {
             InitializeComponent();
-            MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString;
-
-            myConnectionString = "server=127.0.0.1;uid=root;" +
-                "pwd='';database=networkmaster;";
-
-            try
+            //Connection to Server
+            using (var conn = new NpgsqlConnection("Host=myserver;Username=root;Password=mypass;Database=mydatabase"))
             {
-                conn = new MySql.Data.MySqlClient.MySqlConnection(myConnectionString);
                 conn.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+
+                    // Insert some data
+                    cmd.CommandText = "INSERT INTO data (some_field) VALUES ('Hello world')";
+                    cmd.ExecuteNonQuery();
+
+                    // Retrieve all rows
+                    cmd.CommandText = "SELECT some_field FROM data";
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Console.WriteLine(reader.GetString(0));
+                        }
+                    }
+                }
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+
+
+
+
         }
     }
 }
