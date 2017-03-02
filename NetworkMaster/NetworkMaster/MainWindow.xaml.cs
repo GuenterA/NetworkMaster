@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data;
 using MySql.Data.MySqlClient;
-using Npgsql;
+//using Npgsql;
+using System.Data.SqlClient;
+using System.Net.Sockets;
 
 namespace NetworkMaster
 {
@@ -23,37 +25,93 @@ namespace NetworkMaster
     /// </summary>
     public partial class MainWindow : Window
     {
+        //<GUI>
+        Label NetworkStat = new Label();
+        Label ServerIP = new Label();
+        bool con;
+        byte[] search;
         public MainWindow()
         {
             InitializeComponent();
-            //Connection to Server
-            using (var conn = new NpgsqlConnection("Host=myserver;Username=root;Password=mypass;Database=mydatabase"))
+            GUI();
+            StatusBar.VerticalAlignment = VerticalAlignment.Bottom;
+            StatusBar.Items.Add(NetworkStat);
+            StatusBar.Items.Add(ServerIP);
+
+            SidePanel.HorizontalAlignment = HorizontalAlignment.Left;
+            SidePanel.Width = 200;
+            SidePanel.Background = Brushes.LightBlue;
+            
+        }
+
+
+
+        public void GUI()
+        {
+            //Statusbar              
+            if (Connect.ip == null)
+                NetworkStat.Content = "Not Connected";
+            else
+                NetworkStat.Content = "Connected";
+           
+            ServerIP.Content = "Server:" + Connect.ip;
+        }
+
+        private void SideExpander_Collapsed(object sender, RoutedEventArgs e)
+        {
+            SidePanel.Width = 30;
+            
+        }
+
+        private void SideExpander_Expanded(object sender, RoutedEventArgs e)
+        {
+            SidePanel.Width = 200;
+            
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Connect win = new Connect();
+            win.ShowDialog();
+            GUI();        
+        }
+
+
+        //</GUI>
+        //<Backend>
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            //Decvices
+            //Send devices to server
+            con = false;
+        }
+
+        private void Con_Click(object sender, RoutedEventArgs e)
+        {
+            //Connection
+            con = true;
+            //Send connection to server
+        }
+
+        private void buttonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            search = Encoding.ASCII.GetBytes(textBoxSearch.Text);
+            SendSearch();
+        }
+        public void SendSearch()
+        {
+            //Prep for sending
+            int conbin;
+            if (con == true)
             {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand())
-                {
-                    cmd.Connection = conn;
-
-                    // Insert some data
-                    cmd.CommandText = "INSERT INTO data (some_field) VALUES ('Hello world')";
-                    cmd.ExecuteNonQuery();
-
-                    // Retrieve all rows
-                    cmd.CommandText = "SELECT some_field FROM data";
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Console.WriteLine(reader.GetString(0));
-                        }
-                    }
-                }
+                conbin = 1;
             }
-
-
-
-
+            else
+                conbin = 0;
+            //Sending
 
         }
+        //</Backend>
+
     }
 }

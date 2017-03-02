@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NetworkMaster"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="NetworkMaster" Height="350" Width="525">
     <Grid>
-        <DockPanel>
+        <DockPanel x:Name="MenuBar">
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Open"/>
@@ -23,13 +23,28 @@
                         <MenuItem Header="Manufacturer"/>
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="_Connection">
+                    <MenuItem Header="Add Connection" Click="MenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="View">
+                    <MenuItem Header="Light" />
+                    <MenuItem Header="Dark" />
+                </MenuItem>
             </Menu>
-            <StackPanel></StackPanel>
         </DockPanel>
+        <Grid x:Name="SidePanel" Margin="0,27,390,10">
+            <Expander x:Name="SideExpander" ExpandDirection="Right" Collapsed="SideExpander_Collapsed" Expanded="SideExpander_Expanded"/>
+            <TextBox x:Name="textBoxSearch" Width="180" Height="25" VerticalAlignment="Top" Margin="10,30,10,0"></TextBox>
+            <Button x:Name="buttonSearch" Width="180" Content="Search" VerticalAlignment="Top" Margin="10,60,10,0" HorizontalAlignment="Left" Click="buttonSearch_Click"></Button>
+            <Menu VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,90,0,0" Width="200" FontSize="15" Background="LightBlue">
+                <MenuItem x:Name="Dev" Header="Devices" Width="200" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem x:Name="Con" Header="Connection" Width="200" Click="Con_Click"></MenuItem>
+            </Menu>
+            
+        </Grid>
+        <DataGrid x:Name="DG" Margin="210,27,10,30" />
         <DockPanel>
-            <StatusBar x:Name="StatusBar" DockPanel.Dock="Bottom" MinHeight="25" MaxHeight="30">
-                
-            </StatusBar>
+            <StatusBar x:Name="StatusBar" DockPanel.Dock="Bottom" MinHeight="25" MaxHeight="30" Background="Orange"/>
         </DockPanel>
     </Grid>
 </Window>
