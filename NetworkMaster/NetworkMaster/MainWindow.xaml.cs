@@ -75,6 +75,12 @@ namespace NetworkMaster
             win.ShowDialog();
             GUI();        
         }
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Insert win = new Insert();
+            win.ShowDialog();
+            GUI();
+        }
 
 
         //</GUI>
@@ -96,21 +102,25 @@ namespace NetworkMaster
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             search = Encoding.ASCII.GetBytes(textBoxSearch.Text);
-            SendSearch();
+            SendSearch(search);
         }
-        public void SendSearch()
+        public void SendSearch(byte[] search)
         {
             //Prep for sending
-            int conbin;
+            byte conbin;
             if (con == true)
             {
                 conbin = 1;
             }
             else
                 conbin = 0;
+            search[search.Length + 1] = conbin;
             //Sending
 
+
         }
+
+       
         //</Backend>
 
     }
