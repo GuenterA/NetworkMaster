@@ -16,8 +16,8 @@
         <Label x:Name="label" Content="." HorizontalAlignment="Left" Margin="45,82,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="." HorizontalAlignment="Left" Margin="93,82,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy1" Content="." HorizontalAlignment="Left" Margin="141,82,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="buttonOK" Content="Connect" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="75" Click="buttonOK_Click"/>
-        <Button x:Name="buttonC" Content="Cancel" HorizontalAlignment="Left" Margin="114,132,0,0" VerticalAlignment="Top" Width="75" Click="buttonC_Click"/>
+        <Button x:Name="buttonOK" Content="Connect" HorizontalAlignment="Left" Margin="127,154,0,0" VerticalAlignment="Top" Width="75" Click="buttonOK_Click"/>
+        <Button x:Name="buttonC" Content="Cancel" HorizontalAlignment="Left" Margin="207,154,0,0" VerticalAlignment="Top" Width="75" Click="buttonC_Click"/>
 
     </Grid>
 </Window>

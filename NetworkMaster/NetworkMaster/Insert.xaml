@@ -7,30 +7,30 @@
         mc:Ignorable="d"
         Title="Insert" Height="436.511" Width="326">
     <Grid>
-        
-        <ComboBox x:Name="cbType" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="298" SelectionChanged="cbType_SelectionChanged"/>
-        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Margin="127,376,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <ComboBox x:Name="cbType" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="298" SelectionChanged="cbType_SelectionChanged"/>
+        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Margin="127,376,0,0" VerticalAlignment="Top" Width="75" Click="btnOK_Click"/>
         <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="207,376,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click"/>
-        <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Model" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="Ports" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Location" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4" Content="IP-Address" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.359,0.717"/>
-        <Label x:Name="label5" Content="Device from" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label6" Content="Port from" HorizontalAlignment="Left" Margin="197,225,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.033,-0.12"/>
-        <Label x:Name="label7" Content="Device to" HorizontalAlignment="Left" Margin="10,255,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label8" Content="Port to" HorizontalAlignment="Left" Margin="197,259,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label9" Content="Type" HorizontalAlignment="Left" Margin="10,286,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="105,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
-        <TextBox x:Name="tbModel" HorizontalAlignment="Left" Height="23" Margin="105,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
-        <TextBox x:Name="tbPorts" HorizontalAlignment="Left" Height="23" Margin="105,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="203"/>
-        <TextBox x:Name="tbLocation" HorizontalAlignment="Left" Height="23" Margin="105,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
-        <TextBox x:Name="tbIP" HorizontalAlignment="Left" Height="23" Margin="105,197,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="203"/>
-        <ComboBox x:Name="cbDF" HorizontalAlignment="Left" Margin="105,228,0,0" VerticalAlignment="Top" Width="87"/>
-        <ComboBox x:Name="cbPF" HorizontalAlignment="Left" Margin="262,229,0,0" VerticalAlignment="Top" Width="46"/>
-        <ComboBox x:Name="cbDT" HorizontalAlignment="Left" Margin="105,259,0,0" VerticalAlignment="Top" Width="87"/>
-        <ComboBox x:Name="cbPT" HorizontalAlignment="Left" Margin="262,259,0,0" VerticalAlignment="Top" Width="46"/>
-        <ComboBox x:Name="cbConType" HorizontalAlignment="Left" Margin="105,290,0,0" VerticalAlignment="Top" Width="203"/>
+        <Label x:Name="labelName" Content="Name" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelPort" Content="Ports" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelLoc" Content="Location" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelIP" Content="IP-Address" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.359,0.717"/>
+        <Label x:Name="labelDevF" Content="Device from" HorizontalAlignment="Left" Margin="10,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelPortF" Content="Port from" HorizontalAlignment="Left" Margin="197,203,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.033,-0.12"/>
+        <Label x:Name="labelDevT" Content="Device to" HorizontalAlignment="Left" Margin="10,233,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelPortT" Content="Port to" HorizontalAlignment="Left" Margin="197,237,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelType" Content="Type" HorizontalAlignment="Left" Margin="10,264,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelMan" Content="Manufacturer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,295,0,0" />
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="105,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+        <TextBox x:Name="tbPorts" HorizontalAlignment="Left" Height="23" Margin="105,113,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="203"/>
+        <TextBox x:Name="tbLocation" HorizontalAlignment="Left" Height="23" Margin="105,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+        <TextBox x:Name="tbIP" HorizontalAlignment="Left" Height="23" Margin="105,175,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="203"/>
+        <ComboBox x:Name="cbDF" HorizontalAlignment="Left" Margin="105,206,0,0" VerticalAlignment="Top" Width="87"/>
+        <ComboBox x:Name="cbPF" HorizontalAlignment="Left" Margin="262,207,0,0" VerticalAlignment="Top" Width="46"/>
+        <ComboBox x:Name="cbDT" HorizontalAlignment="Left" Margin="105,237,0,0" VerticalAlignment="Top" Width="87"/>
+        <ComboBox x:Name="cbPT" HorizontalAlignment="Left" Margin="262,237,0,0" VerticalAlignment="Top" Width="46"/>
+        <ComboBox x:Name="cbConType" HorizontalAlignment="Left" Margin="105,268,0,0" VerticalAlignment="Top" Width="203"/>
+        <ComboBox x:Name="cbMan" HorizontalAlignment="Left" VerticalAlignment="Top" Width="203" Margin="105,295,0,0" />
         <Label x:Name="LabelHead" Margin="10,10,10,369" Content="Select a Type you want to insert and fill the form"/>
     </Grid>
 </Window>

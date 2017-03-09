@@ -25,6 +25,9 @@
                     <MenuItem Header="Light" />
                     <MenuItem Header="Dark" />
                 </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Header="About" x:Name="About" Click="About_Click"/>
+                </MenuItem>
             </Menu>
         </DockPanel>
         <Grid x:Name="SidePanel" Margin="0,27,390,10">

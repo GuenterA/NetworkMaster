@@ -19,12 +19,13 @@ namespace NetworkMaster
     /// </summary>
     public partial class Insert : Window
     {
-        string[] type = new string[] { "Connection", "Device", "Device Model", "Device Type", "Device Mnufacturer" };
+        string[] type = new string[] { "Device", "Connection",  "Device Model", "Device Type", "Device Manufacturer" };
         public Insert()
         {
             InitializeComponent();
-            btnOK.IsEnabled = false;
-            
+            btnOK.IsEnabled         =  false;
+            hide();
+
             foreach (string item in type)
             {
                 cbType.Items.Add(item);
@@ -39,7 +40,7 @@ namespace NetworkMaster
            
             
 
-            //if (string.IsNullOrEmpty(cbType.Text))
+            //if (string.IsNullOrEmpty(cbType.SelectedItem))
             //{
             //    MessageBox.Show("There is no Item Selected");
             //}
@@ -50,27 +51,114 @@ namespace NetworkMaster
             this.Close();
         }
 
+        public void hide()
+        {
+            tbName.Visibility = Visibility.Hidden;
+            tbPorts.Visibility = Visibility.Hidden;
+            tbLocation.Visibility = Visibility.Hidden;
+            tbIP.Visibility = Visibility.Hidden;
+            cbConType.Visibility = Visibility.Hidden;
+            cbDF.Visibility = Visibility.Hidden;
+            cbDT.Visibility = Visibility.Hidden;
+            cbPF.Visibility = Visibility.Hidden;
+            cbPT.Visibility = Visibility.Hidden;
+            labelDevF.Visibility = Visibility.Hidden;
+            labelDevT.Visibility = Visibility.Hidden;
+            labelIP.Visibility = Visibility.Hidden;
+            labelLoc.Visibility = Visibility.Hidden;
+            labelName.Visibility = Visibility.Hidden;
+            labelPort.Visibility = Visibility.Hidden;
+            labelPort.Visibility = Visibility.Hidden;
+            labelPortF.Visibility = Visibility.Hidden;
+            labelPortT.Visibility = Visibility.Hidden;
+            labelType.Visibility = Visibility.Hidden;
+            labelMan.Visibility = Visibility.Hidden;
+            cbMan.Visibility = Visibility.Hidden;
+        }
         private void cbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbType.Text == type[0])
+            
+            if (cbType.SelectedItem == type[0])
             {
-                throw new NotImplementedException();
+                //Device
+                this.Title = "Insert a "+type[0];
+
+                hide();
+
+                labelName.Visibility    = Visibility.Visible;
+                labelLoc.Visibility     = Visibility.Visible;
+                labelIP.Visibility      = Visibility.Visible;
+                labelType.Visibility    = Visibility.Visible;
+                labelMan.Visibility     = Visibility.Visible;
+                tbName.Visibility       = Visibility.Visible;
+                tbIP.Visibility         = Visibility.Visible;
+                tbLocation.Visibility   = Visibility.Visible;
+                cbType.Visibility       = Visibility.Visible;
+                cbMan.Visibility        = Visibility.Visible;
+
             }
-            else if (cbType.Text == type[1])
+            else if (cbType.SelectedItem == type[1])
             {
-                tbName.Visibility = Visibility.Hidden;
+                //Connection
+                this.Title = "Insert a " + type[1];
+
+                hide();
+
+                labelPortF.Visibility   = Visibility.Visible;
+                labelPortT.Visibility   = Visibility.Visible;
+                labelDevF.Visibility    = Visibility.Visible;
+                labelDevT.Visibility    = Visibility.Visible;
+                labelType.Visibility    = Visibility.Visible;
+                cbDF.Visibility         = Visibility.Visible;
+                cbDT.Visibility         = Visibility.Visible;
+                cbPF.Visibility         = Visibility.Visible;
+                cbPT.Visibility         = Visibility.Visible;
+                cbConType.Visibility    = Visibility.Visible;
+
             }
-            else if (cbType.Text == type[2])
+            else if (cbType.SelectedItem == type[2])
             {
-                this.Title = "Insert a Device";
+                //Device Model
+                this.Title = "Insert a " + type[2];
+
+                hide();
+
+                labelName.Visibility    = Visibility.Visible;
+                labelType.Visibility    = Visibility.Visible;
+                labelMan.Visibility     = Visibility.Visible;
+                labelPort.Visibility    = Visibility.Visible;
+                tbName.Visibility = Visibility.Visible;
+                cbConType.Visibility = Visibility.Visible;
+                cbMan.Visibility = Visibility.Visible;
+                tbPorts.Visibility = Visibility.Visible;
+
             }
-            else if (cbType.Text == type[3])
+            else if (cbType.SelectedItem == type[3])
             {
-                this.Title = "Insert a Device";
+                //Device Type
+                this.Title = "Insert a " + type[3];
+
+                hide();
+
+                labelName.Visibility    = Visibility.Visible;
+                tbName.Visibility       = Visibility.Visible;
+
             }
-            else if (cbType.Text == type[4])
+            else if (cbType.SelectedItem == type[4])
             {
+                //Device Device Manufacurer
+                this.Title = "Insert a " + type[4];
+
+                hide();
+                labelName.Visibility    = Visibility.Visible;
+                tbName.Visibility       = Visibility.Visible;
             }
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+            //Send the result to the main class
+            this.Close();
         }
     }
 }

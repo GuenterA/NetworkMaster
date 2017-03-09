@@ -49,7 +49,7 @@ namespace NetworkMaster
         public void GUI()
         {
             //Statusbar              
-            if (Connect.ip == null)
+            if (Connect.ip == null || Connect.ip == "....")
                 NetworkStat.Content = "Not Connected";
             else
                 NetworkStat.Content = "Connected";
@@ -81,7 +81,10 @@ namespace NetworkMaster
             win.ShowDialog();
             GUI();
         }
-
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This Software is a Product made by Dominik BARTOSCH and Günter ADENSAM. This Product is under the GPL.");
+        }
 
         //</GUI>
         //<Backend>
@@ -121,6 +124,8 @@ namespace NetworkMaster
         }
 
        
+
+
         //</Backend>
 
     }
