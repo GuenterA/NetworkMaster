@@ -7,17 +7,17 @@
         mc:Ignorable="d"
         Title="Connect to a Server" Height="214.773" Width="300">
     <Grid>
-
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="67" Width="272"><Run Text="Please enter the IP-Address of the Server you want to connect to"/><Run Text="."/><LineBreak/></TextBlock>
-        <TextBox x:Name="textBox_IP1" HorizontalAlignment="Left" Height="23" Margin="10,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
-        <TextBox x:Name="textBox_IP2" HorizontalAlignment="Left" Height="23" Margin="58,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
-        <TextBox x:Name="textBox_IP3" HorizontalAlignment="Left" Height="23" Margin="106,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
-        <TextBox x:Name="textBox_IP4" HorizontalAlignment="Left" Height="23" Margin="154,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
-        <Label x:Name="label" Content="." HorizontalAlignment="Left" Margin="45,82,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="." HorizontalAlignment="Left" Margin="93,82,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy1" Content="." HorizontalAlignment="Left" Margin="141,82,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbServer" HorizontalAlignment="Left" Height="23" Margin="105,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
         <Button x:Name="buttonOK" Content="Connect" HorizontalAlignment="Left" Margin="127,154,0,0" VerticalAlignment="Top" Width="75" Click="buttonOK_Click"/>
         <Button x:Name="buttonC" Content="Cancel" HorizontalAlignment="Left" Margin="207,154,0,0" VerticalAlignment="Top" Width="75" Click="buttonC_Click"/>
+        <Label x:Name="label1" Content="Server" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Database" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="User" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="Password" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbDB" HorizontalAlignment="Left" Height="23" Margin="105,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="23" Margin="105,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <PasswordBox x:Name="pBPW" HorizontalAlignment="Left" Margin="105,108,0,0" VerticalAlignment="Top" Width="177"/>
+
 
     </Grid>
 </Window>

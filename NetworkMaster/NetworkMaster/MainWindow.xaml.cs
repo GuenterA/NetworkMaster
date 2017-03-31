@@ -12,11 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data;
-using MySql.Data.MySqlClient;
-//using Npgsql;
-using System.Data.SqlClient;
+using System.Net;
 using System.Net.Sockets;
+
 
 namespace NetworkMaster
 {
@@ -41,20 +39,18 @@ namespace NetworkMaster
             SidePanel.HorizontalAlignment = HorizontalAlignment.Left;
             SidePanel.Width = 200;
             SidePanel.Background = Brushes.LightBlue;
-            
+
         }
 
-
-
-        public void GUI()
+public void GUI()
         {
             //Statusbar              
-            if (Connect.ip == null || Connect.ip == "....")
+            if (Connect.Server == "")
                 NetworkStat.Content = "Not Connected";
             else
                 NetworkStat.Content = "Connected";
            
-            ServerIP.Content = "Server:" + Connect.ip;
+            ServerIP.Content = "Server:" + Connect.Server;
         }
 
         private void SideExpander_Collapsed(object sender, RoutedEventArgs e)
@@ -91,6 +87,7 @@ namespace NetworkMaster
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             //Decvices
+            con = false;
             //Send devices to server
             con = false;
         }
@@ -122,9 +119,19 @@ namespace NetworkMaster
 
 
         }
+        private void send()
+        {
+            byte[] a = new byte[]();
+            ;
+            Socket ClientS = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            ClientS.Connect(ip, 4000);
+            ClientS.Send(new byte[] { 0, 1, 1, 1, 0, 0, 1, 1 });
+            ClientS.Receive(a);
+        }
 
        
-
+            
 
         //</Backend>
 

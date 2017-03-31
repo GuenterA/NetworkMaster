@@ -23,11 +23,17 @@ namespace NetworkMaster
         {
             InitializeComponent();
         }
-        public static string ip = "";
+        public static string Server = "";
+        public static string DB = "";
+        public static string User = "";
+        public static string Password = "";
         private void buttonOK_Click(object sender, RoutedEventArgs e)
         {
-            string s = textBox_IP1.Text + "." + textBox_IP2.Text + "." + textBox_IP3.Text + "." + textBox_IP4.Text;
-            ip = s;
+            Server = tbServer.Text;
+            DB = tbDB.Text;
+            User = tbUser.Text;
+            Password =  pBPW.Password;
+
             this.Close();
             
             
